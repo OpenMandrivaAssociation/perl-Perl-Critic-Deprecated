@@ -1,29 +1,29 @@
 %define upstream_name    Perl-Critic-Deprecated
 %define upstream_version 1.108
 
-Name:       perl-%{upstream_name}
-Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 2
+Name:		perl-%{upstream_name}
+Version:	%perl_convert_version %{upstream_version}
+Release:	3
 
-Summary:    Write C<$my_variable = 42> instead of C<$MyVariable = 42>
-License:    GPL+ or Artistic
-Group:      Development/Perl
-Url:        http://search.cpan.org/dist/%{upstream_name}
-Source0:    http://www.cpan.org/modules/by-module/Perl/%{upstream_name}-%{upstream_version}.tar.gz
+Summary:	Write C<$my_variable = 42> instead of C<$MyVariable = 42>
+License:	GPL+ or Artistic
+Group:		Development/Perl
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	http://www.cpan.org/modules/by-module/Perl/%{upstream_name}-%{upstream_version}.tar.gz
 
-BuildRequires: perl(Carp)
-BuildRequires: perl(English)
-BuildRequires: perl(Perl::Critic::Policy)
-BuildRequires: perl(Perl::Critic::TestUtils)
-BuildRequires: perl(Perl::Critic::Utils)
-BuildRequires: perl(Readonly)
-BuildRequires: perl(Test::More)
-BuildRequires: perl(base)
-BuildRequires: perl(strict)
-BuildRequires: perl(warnings)
-BuildRequires: perl(Module::Build::Compat)
-BuildArch: noarch
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
+BuildRequires:	perl-devel
+BuildRequires:	perl(Carp)
+BuildRequires:	perl(English)
+BuildRequires:	perl(Perl::Critic::Policy)
+BuildRequires:	perl(Perl::Critic::TestUtils)
+BuildRequires:	perl(Perl::Critic::Utils)
+BuildRequires:	perl(Readonly)
+BuildRequires:	perl(Test::More)
+BuildRequires:	perl(base)
+BuildRequires:	perl(strict)
+BuildRequires:	perl(warnings)
+BuildRequires:	perl(Module::Build::Compat)
+BuildArch:	noarch
 
 %description
 The included policies are:
@@ -36,24 +36,26 @@ The included policies are:
 %setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS=vendor
-
+perl Makefile.PL INSTALLDIRS=vendor
 %make
 
 %check
 %make test
 
 %install
-rm -rf %buildroot
 %makeinstall_std
 
-%clean
-rm -rf %buildroot
-
 %files
-%defattr(-,root,root)
 %doc Changes META.yml README
 %{_mandir}/man3/*
-%perl_vendorlib/*
+%{perl_vendorlib}/*
 
+%changelog
+* Mon Apr 18 2011 Funda Wang <fwang@mandriva.org> 1.108.0-2mdv2011.0
++ Revision: 655608
+- rebuild for updated spec-helper
+
+* Wed Aug 25 2010 Jérôme Quelin <jquelin@mandriva.org> 1.108.0-1mdv2011.0
++ Revision: 573222
+- import perl-Perl-Critic-Deprecated
 
