@@ -1,15 +1,15 @@
 %define upstream_name    Perl-Critic-Deprecated
-%define upstream_version 1.108
+%define upstream_version 1.119
 
 Name:		perl-%{upstream_name}
 Version:	%perl_convert_version %{upstream_version}
-Release:	3
+Release:	1
 
 Summary:	Write C<$my_variable = 42> instead of C<$MyVariable = 42>
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/Perl/%{upstream_name}-%{upstream_version}.tar.gz
+Source0:	http://www.cpan.org/modules/by-module/Perl/Perl-Critic-Deprecated-%{upstream_version}.tar.gz
 
 BuildRequires:	perl-devel
 BuildRequires:	perl(Carp)
@@ -58,4 +58,5 @@ perl Makefile.PL INSTALLDIRS=vendor
 * Wed Aug 25 2010 Jérôme Quelin <jquelin@mandriva.org> 1.108.0-1mdv2011.0
 + Revision: 573222
 - import perl-Perl-Critic-Deprecated
+
 
