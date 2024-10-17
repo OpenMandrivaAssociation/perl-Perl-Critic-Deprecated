@@ -8,7 +8,7 @@ Release:	3
 Summary:	Write C<$my_variable = 42> instead of C<$MyVariable = 42>
 License:	GPL+ or Artistic
 Group:		Development/Perl
-Url:		http://search.cpan.org/dist/%{upstream_name}
+Url:		https://search.cpan.org/dist/%{upstream_name}
 Source0:	http://www.cpan.org/modules/by-module/Perl/Perl-Critic-Deprecated-%{upstream_version}.tar.gz
 
 BuildRequires:	perl-devel
