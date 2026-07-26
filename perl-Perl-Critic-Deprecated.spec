@@ -1,15 +1,13 @@
 %define upstream_name    Perl-Critic-Deprecated
-%define upstream_version 1.119
-
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	3
+Version:	1.119
+Release:	4
 
 Summary:	Write C<$my_variable = 42> instead of C<$MyVariable = 42>
 License:	GPL+ or Artistic
 Group:		Development/Perl
-Url:		https://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/Perl/Perl-Critic-Deprecated-%{upstream_version}.tar.gz
+Url:		https://metacpan.org/dist/%{upstream_name}
+Source0:	http://www.cpan.org/modules/by-module/Perl/Perl-Critic-Deprecated-%{version}.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
@@ -34,7 +32,7 @@ The included policies are:
   Write '$my_variable = 42' instead of '$MyVariable = 42'. [Severity 1]
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -q -n %{upstream_name}-%{version}
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
